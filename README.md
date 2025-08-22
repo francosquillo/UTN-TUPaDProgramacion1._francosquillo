@@ -1,1 +1,75 @@
 # UTN-TUPaDProgramacion1._francosquillo
+"""
+1) Crear un programa que imprima por pantalla el mensaje: “Hola Mundo!”.
+2) Crear un programa que pida al usuario su nombre e imprima por pantalla un saludo usando
+el nombre ingresado. Por ejemplo: si el usuario ingresa “Marcos”, el programa debe imprimir
+por pantalla “Hola Marcos!”. Consejo: esto será más sencillo si utilizas print(f…) para
+realizar la impresión por pantalla.
+3) Crear un programa que pida al usuario su nombre, apellido, edad y lugar de residencia e
+imprima por pantalla una oración con los datos ingresados. Por ejemplo: si el usuario ingresa
+“Marcos”, “Pérez”, “30” y “Argentina”, el programa debe imprimir “Soy Marcos Pérez, tengo 30
+años y vivo en Argentina”. Consejo: esto será más sencillo si utilizas print(f…) para realizar
+la impresión por pantalla.
+4) Crear un programa que pida al usuario el radio de un círculo e imprima por pantalla su área y
+su perímetro.
+5) Crear un programa que pida al usuario una cantidad de segundos e imprima por pantalla a
+cuántas horas equivale.
+6) Crear un programa que pida al usuario un número e imprima por pantalla la tabla de
+multiplicar de dicho número.
+7) Crear un programa que pida al usuario dos números enteros distintos del 0 y muestre por
+pantalla el resultado de sumarlos, dividirlos, multiplicarlos y restarlos.
+8) Crear un programa que pida al usuario su altura y su peso e imprima por pantalla su índice
+de masa corporal.
+9) Crear un programa que pida al usuario una temperatura en grados Celsius e imprima por
+pantalla su equivalente en grados Fahrenheit.
+10) Crear un programa que pida al usuario 3 números e imprima por pantalla el promedio de
+dichos números.
+"""
+
+#1
+print("hola mundo!")
+
+#2
+nombre=input("ingrese su nombre\n")
+print(f'hola {nombre}!')
+
+#3
+nombre=input("ingrese su nombre\n")
+apellido=input("ingrese su apellido\n")
+edad=int(input("ingrese su edad\n"))
+lugarresidencia=input("ingrese su lugar de residencia\n")
+print(f'soy {nombre} {apellido}, tengo {edad} años y vivo en {lugarresidencia}')
+
+#4
+radio=int(input("ingrese el radio del circulo: "))
+print(f'el area del circulo es {3.14*(radio**2)}')
+print(f'el perimetro del circulo es {2*3.14*radio}')
+
+#5
+segundos=int(input("ingrese la cantidad de segundos: "))
+print(f'{segundos} segundos son {segundos/3600} horas')
+
+#6
+num=int(input("ingrese un numero"))
+print(f'{num*1}/{num*2}/{num*3}/{num*4}/{num*5}/{num*6}/{num*7}/{num*8}/{num*9}/{num*10}')
+#este ejercicio lo hice con un bucle for pero como no lo vimos todavia opte por hacerlo de esta forma
+#7
+num1=int(input("ingrese un numero que no sea cero: "))
+num2=int(input("ingrese otro numero que no sea cero: "))
+print(f'{num1+num2}\n{num1-num2}\n{num1*num2}\n{num1/num2}')
+
+#8
+altura=float(input("ingrese su altura en metros"))
+peso=float(input("ingrese su peso en kg"))
+masacorporal=peso/(altura*2)
+print(f'su indice de masa corporal es de {masacorporal}')
+
+#9
+tempcelcius=float(input("ingrese la temperatura en grados celcius: "))
+print(f"la temperatura en grados farenheit es de {(tempcelcius*9/5) + 32 }")
+
+#10
+num1=int(input("ingrese un numero: "))
+num2=int(input("ingrese un numero: "))
+num3=int(input("ingrese un numero: "))
+print(f"el promedio es de {(num1+num2+num3)/3}")
