@@ -1,1 +1,170 @@
+"""
+1) Dado el diccionario precios_frutas
+precios_frutas = {'Banana': 1200, 'Ananá': 2500, 'Melón': 3000, 'Uva':
+1450}
+Añadir las siguientes frutas con sus respectivos precios:
+● Naranja = 1200
+● Manzana = 1500
+● Pera = 2300
+2) Siguiendo con el diccionario precios_frutas que resulta luego de ejecutar el código
+desarrollado en el punto anterior, actualizar los precios de las siguientes frutas:
+● Banana = 1330
+● Manzana = 1700
+● Melón = 2800
+3) Siguiendo con el diccionario precios_frutas que resulta luego de ejecutar el código
+desarrollado en el punto anterior, crear una lista que contenga únicamente las frutas sin los
+precios.
+4) Escribí un programa que permita almacenar y consultar números telefónicos.
+• Permití al usuario cargar 5 contactos con su nombre como clave y número como valor.
+• Luego, pedí un nombre y mostrale el número asociado, si existe.
+Programación 1
+5) Solicita al usuario una frase e imprime:
+• Las palabras únicas (usando un set).
+• Un diccionario con la cantidad de veces que aparece cada palabra.
+Ejemplo:
+6) Permití ingresar los nombres de 3 alumnos, y para cada uno una tupla de 3 notas.
+Luego, mostrá el promedio de cada alumno.
+Ejemplo:
+7) Dado dos sets de números, representando dos listas de estudiantes que aprobaron Parcial 1
+y Parcial 2:
+• Mostrá los que aprobaron ambos parciales.
+• Mostrá los que aprobaron solo uno de los dos.
+• Mostrá la lista total de estudiantes que aprobaron al menos un parcial (sin repetir).
+8) Armá un diccionario donde las claves sean nombres de productos y los valores su stock.
+Permití al usuario:
+• Consultar el stock de un producto ingresado.
+• Agregar unidades al stock si el producto ya existe.
+• Agregar un nuevo producto si no existe.
+9) Creá una agenda donde las claves sean tuplas de (día, hora) y los valores sean eventos.
+Programación 1
+Permití consultar qué actividad hay en cierto día y hora.
+10) Dado un diccionario que mapea nombres de países con sus capitales, construí un nuevo
+diccionario donde:
+• Las capitales sean las claves.
+• Los países sean los valores.
+"""
 
+#1
+precios_frutas = {'Banana': 1200, 'Ananá': 2500, 'Melón': 3000, 'Uva':
+1450}
+precios_frutas["naranaja"]=1200
+precios_frutas["manzana"]=1500
+precios_frutas["pera"]=2300
+
+
+#2
+precios_frutas['Banana']=1330
+precios_frutas["manzana"]=1700
+precios_frutas['Melón']=2800
+#3
+precios=[]
+
+for i in precios_frutas.values():
+    precios.append(i)
+
+for i,j in precios_frutas.items():
+    print(f'{i}:{j}')
+for i in precios:
+    print(i)
+
+#4
+numeros_amigos={}
+for i in range(0,1):
+    nombre=input("ingrese el nombre de su amigo: ")
+    telefono=int(input("ingrese el numero de su amigo: "))
+    numeros_amigos[nombre]=telefono
+
+busqueda=input("ingrese el nombre del amigo que quiera buscar su numero: ")
+if busqueda in numeros_amigos:
+    print(f'el numero de su amigo es: {numeros_amigos[busqueda]}')
+
+#5
+frase = input("Escribe una frase: ")
+palabras = frase.split()
+palabras_unicas = set(palabras)
+print(palabras_unicas)
+conteo = {}
+for palabra in palabras:
+    conteo[palabra] = conteo.get(palabra, 0) + 1
+print(conteo)
+
+#6
+alumnos={}
+for i in range(4):
+    ingreso_alumno=input("Ingrese el nombre del alumno: ")
+    notaslista=[0,0,0]
+    nota=int(input("Ingrese la nota 1:"))
+    notaslista[0]=nota
+    nota=int(input("Ingrese la nota 2:"))
+    notaslista[1]=nota
+    nota=int(input("Ingrese la nota 3:"))
+    notaslista[2]=nota
+    notastupla=tuple(notaslista)
+    alumnos[ingreso_alumno]=notastupla
+
+for i in alumnos.keys():
+    print(f'{i}:{(alumnos[i][0]+alumnos[i][1]+alumnos[i][2])/3}')
+#7
+parcial1 = {1, 2, 3, 4, 5}
+parcial2 = {4, 5, 6, 7, 8}
+
+ambos = parcial1 & parcial2
+print("Aprobaron ambos parciales:", ambos)
+
+solo_uno = parcial1 ^ parcial2
+print("Aprobaron solo uno de los parciales:", solo_uno)
+
+al_menos_uno = parcial1 | parcial2
+print("Aprobaron al menos un parcial:", al_menos_uno)
+
+#8
+productos={"papas":10,"jugos":20,"lapiceras":15}
+while True:
+    print("1-consultar unidades de producto")
+    print("2-reabestecer producto")
+    print("3-agregar producto")
+    print("4-salir")
+    opcion=int(input("Igrese la opcion deseada: "))
+    if opcion==1:
+        busca=input("Ingrese el producto a consultar: ")
+        if busca in productos:
+            print(f'{busca}:{productos[busca]}')
+        else:
+            print("producto no encontrado")
+    if opcion==2:
+        busca=input("Ingrese el producto a reestocker: ")
+        if busca in productos:
+            productos[busca]+=10
+        else:
+            print("producto no encontrado")
+    if opcion==3:
+        agregar=print("Cual es el producto que desea agregar?: ")
+        stock=int(input("Cuanto es el stock de ese producto?:"))
+        productos[agregar]=stock
+    if opcion==4:
+        print("adios")
+        break
+
+
+#9
+hora=25
+minutos=61
+evento=input("Igrese el evento: ")
+while hora>24:
+    hora=int(input("Ingrese la hora del evento"))
+
+while minutos>60:
+    minutos=int(input("Ingrese los minutos de la hora a la que sera el evento"))
+
+eventos={}
+eventos[(hora,minutos)]=evento
+print(eventos)
+
+#10
+normal={"Argentina":"Buenos aires","Chile":"Santiago"}
+reverso={}
+for i,j in normal.items():
+    reverso[j]=i
+
+print(normal)
+print(reverso)
